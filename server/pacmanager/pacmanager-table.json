@@ -1,0 +1,76 @@
+[{
+	"PagePacManagerTitle": [
+		{
+			"title": "名稱"
+		},
+		{
+			"title": "類別"
+		},
+		{
+			"title": "分享/被分享"
+		},
+		{
+			"title": "帳號上限"
+		},
+		{
+			"title": "啟用狀態"
+		}
+	],
+
+	"PagePacManager": [
+		{
+			"title": "台北市立南門國民中學",
+			"type": "一般",
+			"share1": "50",
+			"share2": "30",
+			"upperlimit": "啟用",
+			"enablestate": "5000",
+			"edit": "編輯"
+		},
+		{
+			"title": "台北市立仁愛國民中學",
+			"type": "一般",
+			"share1": "50",
+			"share2": "30",
+			"upperlimit": "啟用",
+			"enablestate": "5000",
+			"edit": "編輯"
+		},
+		{
+			"title": "台北市立金華國民中學",
+			"type": "一般",
+			"share1": "50",
+			"share2": "30",
+			"upperlimit": "啟用",
+			"enablestate": "5000",
+			"edit": "編輯"
+		},
+		{
+			"title": "高雄市私立樂育國民中學",
+			"type": "一般",
+			"share1": "50",
+			"share2": "30",
+			"upperlimit": "停用",
+			"enablestate": "5000",
+			"edit": "編輯"
+		},
+		{
+			"title": "高雄市立鳳西國民中學",
+			"type": "一般",
+			"share1": "50",
+			"share2": "30",
+			"upperlimit": "停用",
+			"enablestate": "5000",
+			"edit": "編輯"
+		},
+		{
+			"title": "台北市立南門國民中學",
+			"type": "一般",
+			"share1": "50",
+			"share2": "30",
+			"upperlimit": "停用",
+			"enablestate": "5000",
+			"edit": "編輯"
+		}
+	]
+}]

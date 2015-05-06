@@ -1,0 +1,22 @@
+include ../mixin/mixin-lorem-ipsum.jade
+.main-sidebar(data-spy="affix", data-offset-top="0", data-offset-bottom="200")
+	.main-pic
+		img.img-responsive(src='images/icons/svg/book.svg', alt='')
+	.main-title
+		.main-title--name
+			| AAA Title
+	.main-menu
+		nav
+			ul.nav
+				- each nav in PrimaryNav
+					- if (currentPage === nav.link)
+						li.active
+							a(href='#{nav.link}')
+								i(class=nav.style)
+								| #{nav.title}
+					- else
+						li
+							//- a(href='\##{nav.link}')
+							a(href='#{nav.link}')
+								i(class=nav.style)
+								| #{nav.title}

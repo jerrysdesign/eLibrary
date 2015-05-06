@@ -1,0 +1,29 @@
+include ../mixin/mixin-lorem-ipsum.jade
+.main-content
+	include ../mould-partials/navbar--a
+	.page-header
+		h1 電子書流通服務平台管理
+	.row
+		include ../mould-partials/navbar--b
+	table(class="table table-striped")
+		thead
+			tr
+				-each part in PagePacManagerTitle
+					th
+						| #{part.title}
+				th
+		tbody
+			-each part in PagePacManager
+				tr
+					td
+						| #{part.title}
+					td
+						| #{part.type}
+					td
+						| #{part.share1} / #{part.share2}
+					td
+						| #{part.enablestate}
+					td
+						| #{part.upperlimit}
+					td
+						a(href='javascript') #{part.edit}

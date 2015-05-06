@@ -1,0 +1,62 @@
+#pac-add-Modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="pac-add-Modal", aria-hidden="true")
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button(type="button" class="close" data-dismiss="modal")
+					span(aria-hidden="true") &times;
+					span.sr-only Close
+				h4.modal-title 新增帳號
+			.modal-body
+				form(id="", method="", action="", role='form', class='form-horizontal',)
+					.form-group
+						label.col-sm-2.control-label(for='name') 名稱
+						.col-sm-10
+							input.form-control(type='text', placeholder='新增名稱')
+					.form-group
+						label.col-sm-2.control-label(for='id') 帳號
+						.col-sm-10
+							input.form-control(type='text', placeholder='帳號')
+					.form-group
+						label.col-sm-2.control-label(for='url') 類別
+						.col-sm-10
+							select.form-control
+								option 一般
+								option 教育部
+					.form-group
+						label.col-sm-2.control-label(for='url') URL
+						.col-sm-10
+							input.form-control(type='text', placeholder='http://')
+					.form-group
+						label.col-sm-2.control-label(for='upperlimit') 帳號上限
+						.col-sm-10
+							input.form-control(type='text', placeholder='帳號上限')
+					.form-group
+						.col-sm-2.control-label 啟用狀態
+						.col-sm-10
+							.form-group
+								label.col-sm-3.control-label(for='sftpid') 帳號
+								.col-sm-9
+									input(type='checkbox' data-toggle='switch')
+							.form-group
+								label.col-sm-3.control-label(for='sftpid') 多媒體編輯器
+								.col-sm-9
+									input(type='checkbox' data-toggle='switch')
+							.form-group
+								label.col-sm-3.control-label(for='sftpid') 閱讀歷程
+								.col-sm-9
+									input(type='checkbox' data-toggle='switch')
+							.form-group(style='margin-bottom: 0;')
+								label.col-sm-3.control-label(for='sftpid') IRS
+								.col-sm-9
+									input(type='checkbox' data-toggle='switch')
+					.form-group
+						label.col-sm-2.control-label(for='sftpid') SFTP 帳號
+						.col-sm-10
+							input#inputPassword3.form-control(type='text', placeholder='SFTP 帳號')
+					.form-group
+						label.col-sm-2.control-label(for='inputPasswordSFTP') SFTP 密碼
+						.col-sm-10
+							input#inputPassword3.form-control(type='password', placeholder='SFTP 密碼')
+			.modal-footer
+				button(type="button" class="btn btn-default" data-dismiss="modal") 取消
+				button(type="button" class="btn btn-primary") 確定

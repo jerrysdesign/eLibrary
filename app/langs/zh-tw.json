@@ -1,0 +1,66 @@
+{
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "搜尋.."
+    }
+  },
+  "sidebar": {
+    "heading": {
+      "HEADER": "主選單"
+    },
+    "nav": {
+      "DASHBOARD": "儀表板",
+      "DOCUMENTATION": "文件",
+      "component": {
+        "COMPONENTS": "元件",
+        "BUTTON": "按鈕",
+        "NOTIFICATION": "通知",
+        "BOOTSTRAPUI": "Bootstrap UI",
+        "PANEL": "面板",
+        "PORTLET": "Portlet",
+        "GRID": "網格",
+        "GRID_MASONRY": "網格堆疊",
+        "TYPO": "文字",
+        "PALETTE": "色板"
+      },
+      "icon": {
+        "ICON": "圖標",
+        "FEATHER": "Feather Icons",
+        "FA" : "Font Awesome"
+      },
+      "form": {
+        "FORM": "表單",
+        "INPUT": "述入框",
+        "VALIDATION": "驗證",
+        "WIZARD": "助手"
+      },
+      "CHART": "圖表",
+      "table": {
+        "TABLE": "表格˙",
+        "RESPONSIVE": "響應式表格"
+      },
+      "map": {
+        "MAP": "地圖",
+        "GOOGLE": "Google 地圖",
+        "VECTOR": "Vector 地圖"
+      },
+      "app": {
+        "APP": "應用程式",
+        "MAILBOX": "信箱",
+        "CALENDAR": "日立",
+        "TASK": "任務"
+      },
+      "pages": {
+        "PAGES": "頁面",
+        "LOGIN": "登入",
+        "REGISTER": "註冊",
+        "RECOVER": "找回密碼",
+        "LOCK": "鎖定帳號",
+        "BLANK": "空白頁面",
+        "INVOICE": "訂單",
+        "PRICE": "價格表",
+        "SEARCH": "搜尋"
+      }
+    }
+  }
+}

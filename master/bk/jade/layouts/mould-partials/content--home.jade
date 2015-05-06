@@ -1,0 +1,30 @@
+include ../mixin/mixin-lorem-ipsum.jade
+.main-content
+	//- include ../mould-partials/navbar--a
+	.row
+		.col-lg-12
+			.main-content__title 到期日通知
+	.row
+		.col-lg-4
+			.item-list__pic
+				img(src='images/icons/png/Clipboard.png')
+		.col-lg-8
+			.item-list__text
+				- each i in new Array(2)
+					p 
+						+lipsum(5, "sentences")
+	.row
+		.col-lg-12
+			.main-content__title 異常記錄
+	.row
+		ul.reset-list
+			- each i in new Array(4)
+				li
+					.col-lg-4
+						.item-list__pic
+							img(src='images/icons/png/Clipboard.png')
+					.col-lg-8
+						.item-list__text
+							- each i in new Array(2)
+								p 
+									+lipsum(5, "sentences")

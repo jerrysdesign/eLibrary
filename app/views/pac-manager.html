@@ -1,0 +1,24 @@
+<h3>電子書流通服務平台管理</h3>
+<div data-ng-controller="PacManagerTableController as table" class="container-fluid">
+   <div class="panel panel-default">
+      <div class="panel-heading">
+         <button data-ng-click="table.tableParams3.data[1].$selected = true" class="pull-right btn-sm btn btn-default">Select 2nd Row</button>
+         <div class="panel-title">Select Rows</div>
+      </div>
+      <table data-ng-table="table.tableParams3" class="table data-ng-table-rowselected">
+         <tbody>
+            <tr data-ng-repeat="user in $data" data-ng-click="user.$selected = !user.$selected; changeSelection(user)" data-ng-class="{'active': user.$selected}">
+               <td data-title="'名稱'" sortable="'title'">{{user.title}}</td>
+               <td data-title="'類別'" sortable="'type'">{{user.type}}</td>
+               <td data-title="'分享/被分享'" sortable="'share1'">{{user.share1}} / {{user.share2}}</td>
+               <td data-title="'帳號上限'" sortable="'upperlimit'">{{user.upperlimit}}</td>
+               <td data-title="'啟用狀態'" sortable="'enablestate'">{{user.enablestate}}</td>
+               <td data-title="'編輯'"><a href="javascript:;">{{user.edit}}</a>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <div class="panel-body">
+         <strong>Selected users:</strong>{{ table.data | filter:{"$selected": true} }}</div>
+   </div>
+</div>

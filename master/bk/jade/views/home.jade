@@ -1,0 +1,32 @@
+include ../layouts/mixin/mixin-lorem-ipsum.jade
+
+
+//- h3 HOME
+.panel.panel-default
+	.panel-heading 到期日通知
+	.panel-body
+		//(data-ng-controller="DeadlineNotification")
+		.row.row-table.row-flush
+			.col-xs-2.text-center
+				.item-list__pic
+					img(src='app/img/dummy.png')
+			.col-xs-10
+				.item-list__text
+					- each i in new Array(2)
+						p 
+							+lipsum(5, "sentences")
+
+.panel.panel-default
+	.panel-heading 異常記錄
+	.panel-body
+		//(data-ng-controller="DeadlineNotification")
+		- each i in new Array(4)
+			.row.row-table.row-flush
+				.col-xs-2.text-center
+					.item-list__pic
+						img(src='app/img/dummy.png')
+				.col-xs-10
+					.item-list__text
+						- each i in new Array(2)
+							p 
+								+lipsum(5, "sentences")
