@@ -1,8 +1,8 @@
 {
   "name": "eLibrary",
   "version": "0.0.1",
-  "description": "AAA",
-  "author": "@junnnnj",
+  "description": "",
+  "author": "@Team UI/UX Shuttle",
   "dependencies": {},
   "devDependencies": {
     "css-flip": "git://github.com/twitter/css-flip",

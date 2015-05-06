@@ -60,6 +60,11 @@
         "INVOICE": "发票",
         "PRICE": "价格表",
         "SEARCH": "搜索"
+      },
+      "aaa": {
+        "AAA": "AAA",
+        "HOME": "首页",
+        "PAC Manager": "PAC Manager"
       }
     }
   }

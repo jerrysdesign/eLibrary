@@ -30,7 +30,7 @@
       },
       "form": {
         "FORM": "表單",
-        "INPUT": "述入框",
+        "INPUT": "輸入框",
         "VALIDATION": "驗證",
         "WIZARD": "助手"
       },
@@ -60,6 +60,11 @@
         "INVOICE": "訂單",
         "PRICE": "價格表",
         "SEARCH": "搜尋"
+      },
+      "aaa": {
+        "AAA": "AAA",
+        "HOME": "首頁",
+        "PAC Manager": "PAC Manager"
       }
     }
   }

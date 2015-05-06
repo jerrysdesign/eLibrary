@@ -60,6 +60,11 @@
         "INVOICE": "Invoice",
         "PRICE": "Price Table",
         "SEARCH": "Search"
+      },
+      "aaa": {
+        "AAA": "AAA",
+        "HOME": "Home",
+        "PAC Manager": "PAC Manager"
       }
     }
   }

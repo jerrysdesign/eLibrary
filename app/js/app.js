@@ -1875,75 +1875,6 @@ App.service('language', ["$translate", function($translate) {
   return Language;
 }]);
 /**=========================================================
- * Module: HeaderNavController
- * Controls the header navigation
- =========================================================*/
-
-App.controller('HeaderNavController', ['$scope', function($scope) {
-  'use strict';
-  $scope.headerMenuCollapsed = true;
-
-  $scope.toggleHeaderMenu = function() {
-    $scope.headerMenuCollapsed = !$scope.headerMenuCollapsed;
-  };
-
-}]);
-/**=========================================================
- * Module: SettingsController.js
- * Handles app setting
- =========================================================*/
-
-App.controller('SettingsController', ["$scope", "$rootScope", "$localStorage", "language", function($scope, $rootScope, $localStorage, language) {
-  'use strict';
-  $scope.app = $rootScope.app;
-
-  $scope.themes = [
-    {sidebar: 'bg-inverse', brand: 'bg-info', topbar:  'bg-white'},
-    {sidebar: 'bg-inverse', brand: 'bg-inverse', topbar:  'bg-white'},
-    {sidebar: 'bg-inverse', brand: 'bg-purple', topbar:  'bg-white'},
-    {sidebar: 'bg-inverse', brand: 'bg-success', topbar:  'bg-white'},
-    {sidebar: 'bg-white br', brand: 'bg-inverse', topbar:  'bg-inverse'},
-    {sidebar: 'bg-inverse', brand: 'bg-info', topbar:  'bg-info'},
-    {sidebar: 'bg-white br', brand: 'bg-purple', topbar:  'bg-purple'},
-    {sidebar: 'bg-white br', brand: 'bg-primary', topbar:  'bg-primary'}
-  ];
-
-  $scope.setTheme = function($idx) {
-    $scope.app.theme = $scope.themes[$idx];
-  };
-
-  // Init internationalization service
-  $scope.language = language.init();
-  $scope.language.set = angular.bind(language,language.set);
-
-  
-}]);
-/**=========================================================
- * Module: SummaryController.js
- * Handles app setting
- =========================================================*/
-
-App.controller('SummaryController', ["$scope", "colors", function($scope, colors) {
-  'use strict';
-  $scope.sparkOps1 = {
-    barColor: colors.byName('primary'),
-    height: 20
-  };
-  $scope.sparkOps2 = {
-    barColor: colors.byName('info'),
-    height: 20
-  };
-  $scope.sparkOps3 = {
-    barColor: colors.byName('turquoise'),
-    height: 20
-  };
-
-  $scope.sparkData1 = [1,2,3,4,5,6,7,8,9];
-  $scope.sparkData2 = [1,2,3,4,5,6,7,8,9];
-  $scope.sparkData3 = [1,2,3,4,5,6,7,8,9];
-
-}]);
-/**=========================================================
  * Module: GoogleMapController.js
  * Google Map plugin controller
  =========================================================*/
@@ -2239,6 +2170,75 @@ App.directive('vectorMap', function(){
 
 });
 /**=========================================================
+ * Module: HeaderNavController
+ * Controls the header navigation
+ =========================================================*/
+
+App.controller('HeaderNavController', ['$scope', function($scope) {
+  'use strict';
+  $scope.headerMenuCollapsed = true;
+
+  $scope.toggleHeaderMenu = function() {
+    $scope.headerMenuCollapsed = !$scope.headerMenuCollapsed;
+  };
+
+}]);
+/**=========================================================
+ * Module: SettingsController.js
+ * Handles app setting
+ =========================================================*/
+
+App.controller('SettingsController', ["$scope", "$rootScope", "$localStorage", "language", function($scope, $rootScope, $localStorage, language) {
+  'use strict';
+  $scope.app = $rootScope.app;
+
+  $scope.themes = [
+    {sidebar: 'bg-inverse', brand: 'bg-info', topbar:  'bg-white'},
+    {sidebar: 'bg-inverse', brand: 'bg-inverse', topbar:  'bg-white'},
+    {sidebar: 'bg-inverse', brand: 'bg-purple', topbar:  'bg-white'},
+    {sidebar: 'bg-inverse', brand: 'bg-success', topbar:  'bg-white'},
+    {sidebar: 'bg-white br', brand: 'bg-inverse', topbar:  'bg-inverse'},
+    {sidebar: 'bg-inverse', brand: 'bg-info', topbar:  'bg-info'},
+    {sidebar: 'bg-white br', brand: 'bg-purple', topbar:  'bg-purple'},
+    {sidebar: 'bg-white br', brand: 'bg-primary', topbar:  'bg-primary'}
+  ];
+
+  $scope.setTheme = function($idx) {
+    $scope.app.theme = $scope.themes[$idx];
+  };
+
+  // Init internationalization service
+  $scope.language = language.init();
+  $scope.language.set = angular.bind(language,language.set);
+
+  
+}]);
+/**=========================================================
+ * Module: SummaryController.js
+ * Handles app setting
+ =========================================================*/
+
+App.controller('SummaryController', ["$scope", "colors", function($scope, colors) {
+  'use strict';
+  $scope.sparkOps1 = {
+    barColor: colors.byName('primary'),
+    height: 20
+  };
+  $scope.sparkOps2 = {
+    barColor: colors.byName('info'),
+    height: 20
+  };
+  $scope.sparkOps3 = {
+    barColor: colors.byName('turquoise'),
+    height: 20
+  };
+
+  $scope.sparkData1 = [1,2,3,4,5,6,7,8,9];
+  $scope.sparkData2 = [1,2,3,4,5,6,7,8,9];
+  $scope.sparkData3 = [1,2,3,4,5,6,7,8,9];
+
+}]);
+/**=========================================================
  * Module: PortletsController.js
  * Drag and drop any panel based on jQueryUI portlets
  =========================================================*/
@@ -2326,6 +2326,372 @@ App.directive('portlet', ["$timeout", function($timeout) {
     $this.css('min-height', $this.height());
   }
 
+}]);
+/**=========================================================
+ * Module: AngularTableController.js
+ * Controller for ngTables
+ =========================================================*/
+
+App.controller('AngularTableController', AngularTableController);
+
+function AngularTableController($scope, $filter, ngTableParams) {
+  'use strict';
+  var vm = this;
+
+  // SORTING
+  // ----------------------------------- 
+
+  var data = [
+      {name: "Moroni",  age: 50, money: -10   },
+      {name: "Tiancum", age: 43, money: 120   },
+      {name: "Jacob",   age: 27, money: 5.5   },
+      {name: "Nephi",   age: 29, money: -54   },
+      {name: "Enos",    age: 34, money: 110   },
+      {name: "Tiancum", age: 43, money: 1000  },
+      {name: "Jacob",   age: 27, money: -201  },
+      {name: "Nephi",   age: 29, money: 100   },
+      {name: "Enos",    age: 34, money: -52.5 },
+      {name: "Tiancum", age: 43, money: 52.1  },
+      {name: "Jacob",   age: 27, money: 110   },
+      {name: "Nephi",   age: 29, money: -55   },
+      {name: "Enos",    age: 34, money: 551   },
+      {name: "Tiancum", age: 43, money: -1410 },
+      {name: "Jacob",   age: 27, money: 410   },
+      {name: "Nephi",   age: 29, money: 100   },
+      {name: "Enos",    age: 34, money: -100  }
+  ];
+
+  vm.tableParams = new ngTableParams({
+      page: 1,            // show first page
+      count: 10,          // count per page
+      sorting: {
+          name: 'asc'     // initial sorting
+      }
+  }, {
+      total: data.length, // length of data
+      getData: function($defer, params) {
+          // use build-in angular filter
+          var orderedData = params.sorting() ?
+                  $filter('orderBy')(data, params.orderBy()) :
+                  data;
+  
+          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+  });
+
+  // FILTERS
+  // ----------------------------------- 
+
+  vm.tableParams2 = new ngTableParams({
+      page: 1,            // show first page
+      count: 10,          // count per page
+      filter: {
+          name: '',
+          age: ''
+          // name: 'M'       // initial filter
+      }
+  }, {
+      total: data.length, // length of data
+      getData: function($defer, params) {
+          // use build-in angular filter
+          var orderedData = params.filter() ?
+                 $filter('filter')(data, params.filter()) :
+                 data;
+
+          vm.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+
+          params.total(orderedData.length); // set total for recalc pagination
+          $defer.resolve(vm.users);
+      }
+  });
+
+  // SELECT ROWS
+  // ----------------------------------- 
+
+  vm.data = data;
+
+  vm.tableParams3 = new ngTableParams({
+      page: 1,            // show first page
+      count: 10          // count per page
+  }, {
+      total: data.length, // length of data
+      getData: function ($defer, params) {
+          // use build-in angular filter
+          var filteredData = params.filter() ?
+                  $filter('filter')(data, params.filter()) :
+                  data;
+          var orderedData = params.sorting() ?
+                  $filter('orderBy')(filteredData, params.orderBy()) :
+                  data;
+
+          params.total(orderedData.length); // set total for recalc pagination
+          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+  });
+
+  vm.changeSelection = function(user) {
+      // console.info(user);
+  };
+
+  // EXPORT CSV
+  // -----------------------------------  
+
+  var data4 = [{name: "Moroni", age: 50},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34}];
+
+  vm.tableParams4 = new ngTableParams({
+      page: 1,            // show first page
+      count: 10           // count per page
+  }, {
+      total: data4.length, // length of data4
+      getData: function($defer, params) {
+          $defer.resolve(data4.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+  });
+
+}
+AngularTableController.$inject = ["$scope", "$filter", "ngTableParams"];
+
+/**=========================================================
+ * Module: heckAllTableDirective
+ * Allows to use a checkbox to check all the rest in the same
+ * columns in a Bootstrap table
+ =========================================================*/
+
+App.directive('checkAll', function() {
+  'use strict';
+  
+  return {
+    restrict: 'A',
+    controller: ["$scope", "$element", function($scope, $element){
+      
+      $element.on('change', function() {
+        var $this = $(this),
+            index= $this.index() + 1,
+            checkbox = $this.find('input[type="checkbox"]'),
+            table = $this.parents('table');
+        // Make sure to affect only the correct checkbox column
+        table.find('tbody > tr > td:nth-child('+index+') input[type="checkbox"]')
+          .prop('checked', checkbox[0].checked);
+
+      });
+    }]
+  };
+
+});
+/**=========================================================
+ * Module: PacManagerTableController.js
+ * Controller for ngTables
+ =========================================================*/
+
+App.controller('PacManagerTableController', PacManagerTableController);
+
+function PacManagerTableController($scope, $filter, ngTableParams) {
+  'use strict';
+  var vm = this;
+
+  // SORTING
+  // ----------------------------------- 
+
+  var data = [
+      {
+      "title": "台北市立南門國民中學",
+      "type": "一般",
+      "share1": 50,
+      "share2": 30,
+      "upperlimit": 5000,
+      "enablestate": "啟用",
+      "edit": "編輯"
+    },
+    {
+      "title": "台北市立仁愛國民中學",
+      "type": "一般",
+      "share1": 50,
+      "share2": 30,
+      "upperlimit": 5000,
+      "enablestate": "啟用",
+      "edit": "編輯"
+    },
+    {
+      "title": "台北市立金華國民中學",
+      "type": "一般",
+      "share1": 50,
+      "share2": 30,
+      "upperlimit": 5000,
+      "enablestate": "啟用",
+      "edit": "編輯"
+    },
+    {
+      "title": "高雄市私立樂育國民中學",
+      "type": "一般",
+      "share1": 50,
+      "share2": 30,
+      "upperlimit": 5000,
+      "enablestate": "停用",
+      "edit": "編輯"
+    },
+    {
+      "title": "高雄市立鳳西國民中學",
+      "type": "一般",
+      "share1": 50,
+      "share2": 30,
+      "upperlimit": 5000,
+      "enablestate": "停用",
+      "edit": "編輯"
+    },
+    {
+      "title": "台北市立南門國民中學",
+      "type": "一般",
+      "share1": 50,
+      "share2": 30,
+      "upperlimit": 5000,
+      "enablestate": "停用",
+      "edit": "編輯"
+    }
+  ];
+
+  vm.tableParams = new ngTableParams({
+      page: 1,            // show first page
+      count: 10,          // count per page
+      sorting: {
+          name: 'asc'     // initial sorting
+      }
+  }, {
+      total: data.length, // length of data
+      getData: function($defer, params) {
+          // use build-in angular filter
+          var orderedData = params.sorting() ?
+                  $filter('orderBy')(data, params.orderBy()) :
+                  data;
+  
+          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+  });
+
+  // FILTERS
+  // ----------------------------------- 
+
+  vm.tableParams2 = new ngTableParams({
+      page: 1,            // show first page
+      count: 10,          // count per page
+      filter: {
+          name: '',
+          age: ''
+          // name: 'M'       // initial filter
+      }
+  }, {
+      total: data.length, // length of data
+      getData: function($defer, params) {
+          // use build-in angular filter
+          var orderedData = params.filter() ?
+                 $filter('filter')(data, params.filter()) :
+                 data;
+
+          vm.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+
+          params.total(orderedData.length); // set total for recalc pagination
+          $defer.resolve(vm.users);
+      }
+  });
+
+  // SELECT ROWS
+  // ----------------------------------- 
+
+  vm.data = data;
+
+  vm.tableParams3 = new ngTableParams({
+      page: 1,            // show first page
+      count: 10          // count per page
+  }, {
+      total: data.length, // length of data
+      getData: function ($defer, params) {
+          // use build-in angular filter
+          var filteredData = params.filter() ?
+                  $filter('filter')(data, params.filter()) :
+                  data;
+          var orderedData = params.sorting() ?
+                  $filter('orderBy')(filteredData, params.orderBy()) :
+                  data;
+
+          params.total(orderedData.length); // set total for recalc pagination
+          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+  });
+
+  vm.changeSelection = function(user) {
+      // console.info(user);
+  };
+
+  // EXPORT CSV
+  // -----------------------------------  
+
+  var data4 = [{name: "Moroni", age: 50},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34},
+      {name: "Tiancum", age: 43},
+      {name: "Jacob", age: 27},
+      {name: "Nephi", age: 29},
+      {name: "Enos", age: 34}];
+
+  vm.tableParams4 = new ngTableParams({
+      page: 1,            // show first page
+      count: 10           // count per page
+  }, {
+      total: data4.length, // length of data4
+      getData: function($defer, params) {
+          $defer.resolve(data4.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+  });
+
+}
+PacManagerTableController.$inject = ["$scope", "$filter", "ngTableParams"];
+
+/**=========================================================
+ * Module: DemoResponsiveTableController.js
+ * Controller for responsive tables components
+ =========================================================*/
+
+App.controller("ResponsiveTableController", ['$scope', 'colors', function($scope, colors) {
+  'use strict';
+
+  $scope.sparkOps1 = {
+    barColor: colors.byName('primary')
+  };
+  $scope.sparkOps2 = {
+    barColor: colors.byName('info')
+  };
+  $scope.sparkOps3 = {
+    barColor: colors.byName('turquoise')
+  };
+
+  $scope.sparkData1 = [1,2,3,4,5,6,7,8,9];
+  $scope.sparkData2 = [1,2,3,4,5,6,7,8,9];
+  $scope.sparkData3 = [1,2,3,4,5,6,7,8,9];
 }]);
 /**=========================================================
  * Module: SidebarController
@@ -2721,372 +3087,6 @@ App.service('sidebarMemu', ["$rootScope", "$http", function($rootScope, $http) {
     }
   };
 
-}]);
-/**=========================================================
- * Module: AngularTableController.js
- * Controller for ngTables
- =========================================================*/
-
-App.controller('AngularTableController', AngularTableController);
-
-function AngularTableController($scope, $filter, ngTableParams) {
-  'use strict';
-  var vm = this;
-
-  // SORTING
-  // ----------------------------------- 
-
-  var data = [
-      {name: "Moroni",  age: 50, money: -10   },
-      {name: "Tiancum", age: 43, money: 120   },
-      {name: "Jacob",   age: 27, money: 5.5   },
-      {name: "Nephi",   age: 29, money: -54   },
-      {name: "Enos",    age: 34, money: 110   },
-      {name: "Tiancum", age: 43, money: 1000  },
-      {name: "Jacob",   age: 27, money: -201  },
-      {name: "Nephi",   age: 29, money: 100   },
-      {name: "Enos",    age: 34, money: -52.5 },
-      {name: "Tiancum", age: 43, money: 52.1  },
-      {name: "Jacob",   age: 27, money: 110   },
-      {name: "Nephi",   age: 29, money: -55   },
-      {name: "Enos",    age: 34, money: 551   },
-      {name: "Tiancum", age: 43, money: -1410 },
-      {name: "Jacob",   age: 27, money: 410   },
-      {name: "Nephi",   age: 29, money: 100   },
-      {name: "Enos",    age: 34, money: -100  }
-  ];
-
-  vm.tableParams = new ngTableParams({
-      page: 1,            // show first page
-      count: 10,          // count per page
-      sorting: {
-          name: 'asc'     // initial sorting
-      }
-  }, {
-      total: data.length, // length of data
-      getData: function($defer, params) {
-          // use build-in angular filter
-          var orderedData = params.sorting() ?
-                  $filter('orderBy')(data, params.orderBy()) :
-                  data;
-  
-          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-      }
-  });
-
-  // FILTERS
-  // ----------------------------------- 
-
-  vm.tableParams2 = new ngTableParams({
-      page: 1,            // show first page
-      count: 10,          // count per page
-      filter: {
-          name: '',
-          age: ''
-          // name: 'M'       // initial filter
-      }
-  }, {
-      total: data.length, // length of data
-      getData: function($defer, params) {
-          // use build-in angular filter
-          var orderedData = params.filter() ?
-                 $filter('filter')(data, params.filter()) :
-                 data;
-
-          vm.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
-
-          params.total(orderedData.length); // set total for recalc pagination
-          $defer.resolve(vm.users);
-      }
-  });
-
-  // SELECT ROWS
-  // ----------------------------------- 
-
-  vm.data = data;
-
-  vm.tableParams3 = new ngTableParams({
-      page: 1,            // show first page
-      count: 10          // count per page
-  }, {
-      total: data.length, // length of data
-      getData: function ($defer, params) {
-          // use build-in angular filter
-          var filteredData = params.filter() ?
-                  $filter('filter')(data, params.filter()) :
-                  data;
-          var orderedData = params.sorting() ?
-                  $filter('orderBy')(filteredData, params.orderBy()) :
-                  data;
-
-          params.total(orderedData.length); // set total for recalc pagination
-          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-      }
-  });
-
-  vm.changeSelection = function(user) {
-      // console.info(user);
-  };
-
-  // EXPORT CSV
-  // -----------------------------------  
-
-  var data4 = [{name: "Moroni", age: 50},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34}];
-
-  vm.tableParams4 = new ngTableParams({
-      page: 1,            // show first page
-      count: 10           // count per page
-  }, {
-      total: data4.length, // length of data4
-      getData: function($defer, params) {
-          $defer.resolve(data4.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-      }
-  });
-
-}
-AngularTableController.$inject = ["$scope", "$filter", "ngTableParams"];
-
-/**=========================================================
- * Module: heckAllTableDirective
- * Allows to use a checkbox to check all the rest in the same
- * columns in a Bootstrap table
- =========================================================*/
-
-App.directive('checkAll', function() {
-  'use strict';
-  
-  return {
-    restrict: 'A',
-    controller: ["$scope", "$element", function($scope, $element){
-      
-      $element.on('change', function() {
-        var $this = $(this),
-            index= $this.index() + 1,
-            checkbox = $this.find('input[type="checkbox"]'),
-            table = $this.parents('table');
-        // Make sure to affect only the correct checkbox column
-        table.find('tbody > tr > td:nth-child('+index+') input[type="checkbox"]')
-          .prop('checked', checkbox[0].checked);
-
-      });
-    }]
-  };
-
-});
-/**=========================================================
- * Module: PacManagerTableController.js
- * Controller for ngTables
- =========================================================*/
-
-App.controller('PacManagerTableController', PacManagerTableController);
-
-function PacManagerTableController($scope, $filter, ngTableParams) {
-  'use strict';
-  var vm = this;
-
-  // SORTING
-  // ----------------------------------- 
-
-  var data = [
-      {
-      "title": "台北市立南門國民中學",
-      "type": "一般",
-      "share1": 50,
-      "share2": 30,
-      "upperlimit": 5000,
-      "enablestate": "啟用",
-      "edit": "編輯"
-    },
-    {
-      "title": "台北市立仁愛國民中學",
-      "type": "一般",
-      "share1": 50,
-      "share2": 30,
-      "upperlimit": 5000,
-      "enablestate": "啟用",
-      "edit": "編輯"
-    },
-    {
-      "title": "台北市立金華國民中學",
-      "type": "一般",
-      "share1": 50,
-      "share2": 30,
-      "upperlimit": 5000,
-      "enablestate": "啟用",
-      "edit": "編輯"
-    },
-    {
-      "title": "高雄市私立樂育國民中學",
-      "type": "一般",
-      "share1": 50,
-      "share2": 30,
-      "upperlimit": 5000,
-      "enablestate": "停用",
-      "edit": "編輯"
-    },
-    {
-      "title": "高雄市立鳳西國民中學",
-      "type": "一般",
-      "share1": 50,
-      "share2": 30,
-      "upperlimit": 5000,
-      "enablestate": "停用",
-      "edit": "編輯"
-    },
-    {
-      "title": "台北市立南門國民中學",
-      "type": "一般",
-      "share1": 50,
-      "share2": 30,
-      "upperlimit": 5000,
-      "enablestate": "停用",
-      "edit": "編輯"
-    }
-  ];
-
-  vm.tableParams = new ngTableParams({
-      page: 1,            // show first page
-      count: 10,          // count per page
-      sorting: {
-          name: 'asc'     // initial sorting
-      }
-  }, {
-      total: data.length, // length of data
-      getData: function($defer, params) {
-          // use build-in angular filter
-          var orderedData = params.sorting() ?
-                  $filter('orderBy')(data, params.orderBy()) :
-                  data;
-  
-          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-      }
-  });
-
-  // FILTERS
-  // ----------------------------------- 
-
-  vm.tableParams2 = new ngTableParams({
-      page: 1,            // show first page
-      count: 10,          // count per page
-      filter: {
-          name: '',
-          age: ''
-          // name: 'M'       // initial filter
-      }
-  }, {
-      total: data.length, // length of data
-      getData: function($defer, params) {
-          // use build-in angular filter
-          var orderedData = params.filter() ?
-                 $filter('filter')(data, params.filter()) :
-                 data;
-
-          vm.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
-
-          params.total(orderedData.length); // set total for recalc pagination
-          $defer.resolve(vm.users);
-      }
-  });
-
-  // SELECT ROWS
-  // ----------------------------------- 
-
-  vm.data = data;
-
-  vm.tableParams3 = new ngTableParams({
-      page: 1,            // show first page
-      count: 10          // count per page
-  }, {
-      total: data.length, // length of data
-      getData: function ($defer, params) {
-          // use build-in angular filter
-          var filteredData = params.filter() ?
-                  $filter('filter')(data, params.filter()) :
-                  data;
-          var orderedData = params.sorting() ?
-                  $filter('orderBy')(filteredData, params.orderBy()) :
-                  data;
-
-          params.total(orderedData.length); // set total for recalc pagination
-          $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-      }
-  });
-
-  vm.changeSelection = function(user) {
-      // console.info(user);
-  };
-
-  // EXPORT CSV
-  // -----------------------------------  
-
-  var data4 = [{name: "Moroni", age: 50},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34},
-      {name: "Tiancum", age: 43},
-      {name: "Jacob", age: 27},
-      {name: "Nephi", age: 29},
-      {name: "Enos", age: 34}];
-
-  vm.tableParams4 = new ngTableParams({
-      page: 1,            // show first page
-      count: 10           // count per page
-  }, {
-      total: data4.length, // length of data4
-      getData: function($defer, params) {
-          $defer.resolve(data4.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-      }
-  });
-
-}
-PacManagerTableController.$inject = ["$scope", "$filter", "ngTableParams"];
-
-/**=========================================================
- * Module: DemoResponsiveTableController.js
- * Controller for responsive tables components
- =========================================================*/
-
-App.controller("ResponsiveTableController", ['$scope', 'colors', function($scope, colors) {
-  'use strict';
-
-  $scope.sparkOps1 = {
-    barColor: colors.byName('primary')
-  };
-  $scope.sparkOps2 = {
-    barColor: colors.byName('info')
-  };
-  $scope.sparkOps3 = {
-    barColor: colors.byName('turquoise')
-  };
-
-  $scope.sparkData1 = [1,2,3,4,5,6,7,8,9];
-  $scope.sparkData2 = [1,2,3,4,5,6,7,8,9];
-  $scope.sparkData3 = [1,2,3,4,5,6,7,8,9];
 }]);
 /**=========================================================
  * Module: demo-alerts.js
@@ -3647,20 +3647,6 @@ App.directive('toggleState', ['toggleStateService', function(toggle) {
 }]);
 
 /**=========================================================
- * Module: TitleCaseFilter.js
- * Convert any case to title
- =========================================================*/
-
-App.filter('titlecase', function() {
-  'use strict';
-  return function(s) {
-      s = ( s === undefined || s === null ) ? '' : s;
-      return s.toString().toLowerCase().replace( /\b([a-z])/g, function(ch) {
-          return ch.toUpperCase();
-      });
-  };
-});
-/**=========================================================
  * Module: BrowserDetectionService.js
  * Browser detection service
  =========================================================*/
@@ -3944,3 +3930,17 @@ App.service('touchDrag', ['$document', 'browser', function($document, browser) {
     }
   };
 }]);
+/**=========================================================
+ * Module: TitleCaseFilter.js
+ * Convert any case to title
+ =========================================================*/
+
+App.filter('titlecase', function() {
+  'use strict';
+  return function(s) {
+      s = ( s === undefined || s === null ) ? '' : s;
+      return s.toString().toLowerCase().replace( /\b([a-z])/g, function(ch) {
+          return ch.toUpperCase();
+      });
+  };
+});

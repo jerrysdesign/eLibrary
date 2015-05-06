@@ -102,13 +102,13 @@
 		"type": "separator"
 	},
 	{
-		"text": "AAA",
+		"text": "aaa",
 		"sref": "#",
 		"icon": "icon-stack",
 		"subnav": [
-			{ "text": "Home",             "sref": "app.home", "translate": "HOME" },
+			{ "text": "Home", "sref": "app.home", "translate": "HOME" },
 			{ "text": "Pac Manager", "sref": "app.pac-manager" }
 		],
-		"translate": "AAA"
+		"translate": "sidebar.nav.aaa.AAA"
 	}
 ]

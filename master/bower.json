@@ -1,10 +1,10 @@
 {
-  "name": "AAA",
+  "name": "eLibrary",
   "version": "0.0.1",
   "authors": [
-    "@junnnnj"
+    "@Team UI/UX Shuttle"
   ],
-  "description": "Jade + Less + Bootstrap + Gulp + AngularJS",
+  "description": "",
   "main": "index.html",
   "keywords": [
     "bootstrap",
