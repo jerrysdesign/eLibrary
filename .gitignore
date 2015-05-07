@@ -1,2 +1,41 @@
-master/bower_components/
-master/node_modules/
+#=========================
+# old
+#=========================
+.scssc
+.sass-cache
+templates/project/source/stylesheets
+templates/project/source/.coffeescript-cache/**/*
+templates/project/source/fire_app_log.txt
+node_modules
+dist
+#=========================
+
+
+
+#=========================
+# bootstrap_angularjs
+#=========================
+
+#master/bower_components/
+#master/bower_components/**/*
+#master/node_modules/
+#master/node_modules/**/*
+
+
+#—————————————————————————
+#project temp
+#—————————————————————————
+
+#app/css/
+#app/css/**/*
+#app/pages
+#app/pages/**/*
+#app/vendor
+#app/vendor/**/*
+#app/js/app.js
+#app/js/base.js
+#app/views/**/*
+
+
+#=========================
+#=========================
