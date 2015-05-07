@@ -1,0 +1,15 @@
+//- language
+- var languageTW = { description: '繁體中文' }
+- var languageZC = { description: '簡體中文' }
+- var languageEN = { description: 'English' }
+.dropdown.language
+  button.btn.btn-info.btn-sm.dropdown-toggle(data-toggle="dropdown")
+    if languageTW.description
+      = languageTW.description
+    span.caret
+  .dropdown-arrow.dropdown-arrow-inverse
+  ul.dropdown-menu.dropdown-inverse
+    - each part in Language
+      if(part.item)
+        li
+          a(href="#") #{part.item}

@@ -1,0 +1,19 @@
+.container
+	.row
+		.col-xs-8.demo-login
+			.login
+				.login-screen
+					.login-icon
+						img(alt='Welcome to Mail App', src='images/login/icon.png')
+						h4
+							| Welcome to
+							small Mail App
+					.login-form
+						.form-group
+							input#login-name.form-control.login-field(placeholder='Enter your name', type='text', value='')
+							label.login-field-icon.fui-user(for='login-name')
+						.form-group
+							input#login-pass.form-control.login-field(placeholder='Password', type='password', value='')
+							label.login-field-icon.fui-lock(for='login-pass')
+						a.btn.btn-primary.btn-lg.btn-block(href='#')  Login
+						a.login-link(href='#')  Lost your password?
