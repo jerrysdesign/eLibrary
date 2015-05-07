@@ -2,7 +2,7 @@ doctype html
 
 <!--[if IE 9 ]>    <html class="ie9" lang="en" ng-app="eLibrary"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-html(lang="en", ng-app="AAA") 
+html(lang="en", ng-app="eLibrary") 
   <!--<![endif]-->
   
   head
@@ -12,7 +12,7 @@ html(lang="en", ng-app="AAA")
     meta(name='description', content='{{app.description}}')
     meta(name='keywords', content='keywords')
 
-    title(data-ng-bind="pageTitle()") AAA
+    title(data-ng-bind="pageTitle()") eLibrary
 
     // App CSS
     link(rel='stylesheet', href="app/css/app.css" ng-if="!app.layout.isRTL")

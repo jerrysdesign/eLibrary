@@ -13,7 +13,7 @@ var App = angular.module('eLibrary', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCo
     // ----------------------------------- 
     $rootScope.app = {
       name: 'eLairary',
-      description: 'AAA',
+      description: '',
       year: ((new Date()).getFullYear()),
       viewAnimation: 'ng-fadeInLeft2',
       layout: {
